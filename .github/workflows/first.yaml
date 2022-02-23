@@ -1,0 +1,19 @@
+name: Test Demo Github actions
+on: push
+jobs:
+  job1:
+    name: Test Job 1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1 in job1
+        uses: actions/checkout@v2
+      - name: Step 2 in job2
+        run: env | sort
+  job2:
+    name: Test Job 2
+    runs-on: windows-latest
+    steps:
+      - name: Step 1 in job2
+        uses: actions/checkout@v2
+      - name: Step 2 in job2
+        run: Get-ChildItem Env: | Sort-Object Name
