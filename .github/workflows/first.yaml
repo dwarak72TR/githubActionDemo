@@ -11,10 +11,26 @@ jobs:
         run: env | sort
   job2:
     name: Test Job 2
-    needs : job1
     runs-on: windows-latest
     steps:
       - name: Step 1 in job2
         uses: actions/checkout@v2
       - name: Step 2 in job2
         run: "Get-ChildItem Env: | Sort-Object Name"
+  job3:
+    name: Test Job 3
+    runs-on: macos-latest
+    steps:
+      - name: Step 1 in job3
+        uses: actions/checkout@v2
+      - name: Step 2 in job3
+        run: "hello"
+  job4:
+    name: Test Job 4
+    needs : job1, job2, job3
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1 in job4
+        uses: actions/checkout@v2
+      - name: Step 2 in job4
+        run: "JOb 4 running running ...... done"
