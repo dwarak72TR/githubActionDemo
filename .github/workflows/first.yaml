@@ -33,4 +33,4 @@ jobs:
       - name: Step 1 in job4
         uses: actions/checkout@v2
       - name: Step 2 in job4
-        run: "JOb 4 running running ...... done"
+        run: "date"
