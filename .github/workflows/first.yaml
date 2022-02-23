@@ -16,7 +16,7 @@ jobs:
       - name: Step 1 in job2
         uses: actions/checkout@v2
       - name: Step 2 in job2
-        run: "Get-ChildItem Env: | Sort-Object Name"
+        run: "Get-Date"
   job3:
     name: Test Job 3
     runs-on: macos-latest
@@ -24,7 +24,7 @@ jobs:
       - name: Step 1 in job3
         uses: actions/checkout@v2
       - name: Step 2 in job3
-        run: "hello"
+        run: "date"
   job4:
     name: Test Job 4
     needs : [job1, job2, job3]
