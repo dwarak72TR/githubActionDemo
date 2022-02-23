@@ -27,7 +27,7 @@ jobs:
         run: "hello"
   job4:
     name: Test Job 4
-    needs : job1, job2, job3
+    needs : [job1, job2, job3]
     runs-on: ubuntu-latest
     steps:
       - name: Step 1 in job4
