@@ -13,7 +13,6 @@ jobs:
 
       - name: Download Jar Files
         run: "curl -O https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/18.9.5.4/vosp-api-wrappers-java-18.9.5.4-dist.zip"
-        run: "mkdir veracode"
         run: "cd veracode"
         run: "curl -O https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/21.9.8.2/vosp-api-wrappers-java-21.9.8.2.jar"
       
