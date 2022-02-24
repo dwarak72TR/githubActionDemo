@@ -6,14 +6,13 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: SetUp Version
-        uses: actions/checkout@v2
+        run: date
 
       - name: CheckOut Code
         uses: actions/checkout@v2
 
       - name: Download Jar Files
         run: "curl -O https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/18.9.5.4/vosp-api-wrappers-java-18.9.5.4-dist.zip"
-        run: "cd veracode"
         run: "curl -O https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/21.9.8.2/vosp-api-wrappers-java-21.9.8.2.jar"
       
       - name: Obtain Test Score Results
