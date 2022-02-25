@@ -21,6 +21,6 @@ jobs:
       
       - name: Obtain Test Score Results
         run: |
-          "java -jar $WORKSPACE\\veracode\\vosp-api-wrappers-java-21.9.8.2.jar -vid ${API_ID} -vkey ${API_KEY} -action getbuildinfo -appid ${env.applicationid} > output.xml"
+          "java -jar $WORKSPACE\\veracode\\vosp-api-wrappers-java-21.9.8.2.jar -vid ${env.VERACODE_API_ID} -vkey ${env.VERACODE_API_KEY} -action getbuildinfo -appid ${env.applicationid} > output.xml"
           "cat output.xml"
       
