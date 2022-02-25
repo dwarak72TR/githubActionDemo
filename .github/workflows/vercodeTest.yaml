@@ -1,5 +1,13 @@
 name: Veracode Scanning Process for NGOTP
 on: push
+
+env:
+  VERACODE_APPLICATION_ID: 
+  VERACODE_APPLICATION_NAME: 
+  VERACODE_API_ID: ${{secrets.VERACODE_GCS_API_ID}}
+  VERACODE_API_KEY: ${{secrets.VERACODE_GCS_API_SECRET}}
+  
+
 jobs:
   VeracodeObtainScore:
     name: 
@@ -14,5 +22,6 @@ jobs:
           "curl -O https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/21.9.8.2/vosp-api-wrappers-java-21.9.8.2.jar"
       
       - name: Obtain Test Score Results
-        run: echo "Obtaining test results"
-  
+        run: |
+        "java -jar $WORKSPACE\\veracode\\VeracodeJavaAPI.jar -vid ${API_ID} -vkey ${API_KEY} -action summaryreport -buildid ${build_id} -outputfilepath > summaryreport.xml"
+      
