@@ -1,17 +1,17 @@
 name: Veracode Scanning Process for NGOTP
 on: push
 
-env:
-  VERACODE_APPLICATION_ID: 
-  VERACODE_APPLICATION_NAME: 
-  VERACODE_API_ID: ${{secrets.VERACODE_GCS_API_ID}}
-  VERACODE_API_KEY: ${{secrets.VERACODE_GCS_API_SECRET}}
+env: 
+  VERACODE_API_ID: ${{secrets.VERACODE_API_ID}}
+  VERACODE_API_KEY: ${{secrets.VERACODE_API_TOKEN}}
+  applicationid: 1275632
+
   
 
 jobs:
   VeracodeObtainScore:
     name: 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: SetUp Version
         run: date
@@ -23,6 +23,6 @@ jobs:
       
       - name: Obtain Test Score Results
         run: |
-          "java -jar $WORKSPACE\\veracode\\VeracodeJavaAPI.jar -vid ${API_ID} -vkey ${API_KEY} -action summaryreport -buildid ${build_id} -outputfilepath > summaryreport.xml"
-          "cat summaryreport.xml"
+          "java -jar $WORKSPACE\\veracode\\vosp-api-wrappers-java-21.9.8.2.jar -vid ${API_ID} -vkey ${API_KEY} -action getbuildinfo -appid ${env.applicationid} > output.xml"
+          "cat output.xml"
       
