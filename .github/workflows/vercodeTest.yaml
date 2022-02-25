@@ -23,6 +23,6 @@ jobs:
       
       - name: Obtain Test Score Results
         run: |
-        "java -jar $WORKSPACE\\veracode\\VeracodeJavaAPI.jar -vid ${API_ID} -vkey ${API_KEY} -action summaryreport -buildid ${build_id} -outputfilepath > summaryreport.xml"
-        "cat summaryreport.xml"
+          "java -jar $WORKSPACE\\veracode\\VeracodeJavaAPI.jar -vid ${API_ID} -vkey ${API_KEY} -action summaryreport -buildid ${build_id} -outputfilepath > summaryreport.xml"
+          "cat summaryreport.xml"
       
