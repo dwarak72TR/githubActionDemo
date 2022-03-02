@@ -12,7 +12,7 @@ jobs:
     steps:    
       - name: Download Jar Files
         run: |
-            "curl -O https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/21.9.8.2/vosp-api-wrappers-java-21.9.8.2-dist.zip"
+            "curl -O https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/22.1.9.3/vosp-api-wrappers-java-22.1.9.3-dist.zip"
             "pwd"
           
 
