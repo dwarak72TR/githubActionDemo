@@ -11,12 +11,7 @@ jobs:
 
     - name: Download Jar Files
       run: |
-          artefactpath=veracode_scan
-          wget "https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/maven-metadata.xml" -O veracode_maven_metadata.xml
-          echo `cat veracode_maven_metadata.xml`
-          latest_veracode_version=$(cat veracode_maven_metadata.xml | grep latest | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+')
-          echo ${latest_veracode_version}
-          wget "https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/${latest_veracode_version}/vosp-api-wrappers-java-${latest_veracode_version}.jar" -O VeracodeJavaAPI.jar
-          echo `ls -lrt`
-          chmod 777 VeracodeJavaAPI.jar
+          wget "curl -O https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/21.9.8.2/vosp-api-wrappers-java-21.9.8.2.jar"
+          echo "pwd"
+          
 
