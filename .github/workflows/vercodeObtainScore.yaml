@@ -13,8 +13,9 @@ jobs:
       - name: Download Jar Files
         run: |
             wget "https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/22.1.9.3/vosp-api-wrappers-java-22.1.9.3-dist.zip"
-            "7z x vosp-api-wrappers-java-22.1.9.3-dist.zip.zip"
-            "ls"
+            mkdir veracode
+            cd veracode
+            ls -lrt
             
           
 
