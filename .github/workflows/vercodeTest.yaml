@@ -1,12 +1,9 @@
 name: Veracode Scanning Process for NGOTP
-on: push
 
 env: 
   VERACODE_API_ID: ${{secrets.VERACODE_API_ID}}
   VERACODE_API_KEY: ${{secrets.VERACODE_API_TOKEN}}
   applicationid: 1275632
-
-  
 
 jobs:
   VeracodeObtainScore:
@@ -17,7 +14,11 @@ jobs:
         run: date
 
       - name: Download Jar Files
-        run: "curl -O https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/21.9.8.2/vosp-api-wrappers-java-21.9.8.2.jar"
+        run: |
+          "curl -O https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/18.9.5.4/vosp-api-wrappers-java-18.9.5.4-dist.zip"
+          "7z x vosp-api-wrappers-java-18.9.5.4-dist.zip.zip"
+          "mkdir veracode"
+          "cd veracode"
       
       - name: Obtain Test Score Results
         run: |
