@@ -1,5 +1,5 @@
 name: Test Demo Github actions
-
+on: push
 jobs:
   job1:
     name: Test Job 1

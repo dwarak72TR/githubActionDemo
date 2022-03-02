@@ -1,5 +1,5 @@
 name: Veracode Scanning Process for NGOTP
-
+on: push
 env: 
   VERACODE_API_ID: ${{secrets.VERACODE_API_ID}}
   VERACODE_API_KEY: ${{secrets.VERACODE_API_TOKEN}}
