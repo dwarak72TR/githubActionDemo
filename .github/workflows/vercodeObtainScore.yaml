@@ -25,13 +25,14 @@ jobs:
             
       - name: Get Build Id
         run: |
-            java -jar $GITHUB_WORKSPACE/vosp-api-wrappers-java-21.9.8.2.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action getbuildinfo -appid ${application_id} > output.xml 
+            java -jar $GITHUB_WORKSPACE/veracode/vosp-api-wrappers-java-21.9.8.2.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action getbuildinfo -appid ${application_id} > output.xml 
             cat output.xml  
-            output=$(python $GITHUB_WORKSPACE/scripts/veracodelib.py)
-            echo "Build_id= $output"
+            build_id=$(python $GITHUB_WORKSPACE/scripts/veracodelib.py)
+            echo "Build_id= $build_id"
       - name: Get Summary Report
         run: |
-          java -jar $GITHUB_WORKSPACE\\veracode\\VeracodeJavaAPI.jar -vid ${API_ID} -vkey ${API_KEY} -action summaryreport -buildid ${build_id} -outputfilepath $WORKSPACE\\summaryreport.xml
+          java -jar $GITHUB_WORKSPACE/veracode/VeracodeJavaAPI.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action summaryreport -buildid ${build_id} -outputfilepath $GITHUB_WORKSPACE/summaryreport.xml
+          cat summaryreport.xml
 
           
           
