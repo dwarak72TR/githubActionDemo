@@ -30,7 +30,8 @@ jobs:
             BUILD_id=$(python $GITHUB_WORKSPACE/scripts/veracodelib.py)
             echo "Build_id= $BUILD_id"
             java -jar $GITHUB_WORKSPACE/veracode/VeracodeJavaAPI.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action summaryreport -buildid $BUILD_id -outputfilepath $GITHUB_WORKSPACE/summaryreport.xml
-            cat summaryreport.xml
+            score=$(python $GITHUB_WORKSPACE/scripts/veracode_score.py)
+            echo "score is #score"
 
           
           
