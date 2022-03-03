@@ -1,5 +1,5 @@
 def get_score():
-    filereader = open("$GITHUB_WORKSPACE/summaryreport.xml", "r")
+    filereader = open("summaryreport.xml", "r")
     readxmlfile = filereader.read()
     result = readxmlfile.split("score=",2) #readxml[231:239]
     score = (result[1])[1:3]
