@@ -12,17 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:    
       - name: Download Jar Files
-        run: |
-            wget "https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/22.1.9.3/vosp-api-wrappers-java-22.1.9.3-dist.zip"
-            ls -lrt
-            mkdir veracode
-            cd veracode
+        run: |            
             wget "https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/21.9.8.2/vosp-api-wrappers-java-21.9.8.2.jar"
             ls -lrt
-            chmod 777 vosp-api-wrappers-java-21.9.8.2.jar
+            
       - name: Get Build Info
         run: |
-            java -jar $GITHUB_WORKSPACE/veracode/vosp-api-wrappers-java-21.9.8.2.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action getbuildinfo -appid ${application_id} > output.xml 
+            java -jar $GITHUB_WORKSPACE/vosp-api-wrappers-java-21.9.8.2.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action getbuildinfo -appid ${application_id} > output.xml 
             cat output.xml  
             build_id = grep "build_id=\"\" output.xml
             echo build_id
