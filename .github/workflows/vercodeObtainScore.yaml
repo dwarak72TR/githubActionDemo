@@ -31,7 +31,7 @@ jobs:
             echo "Build_id= $build_id"
       - name: Get Summary Report
         run: |
-          java -jar $GITHUB_WORKSPACE/veracode/VeracodeJavaAPI.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action summaryreport -buildid $build_id -outputfilepath $GITHUB_WORKSPACE/summaryreport.xml
+          java -jar $GITHUB_WORKSPACE/veracode/VeracodeJavaAPI.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action summaryreport -buildid build_id -outputfilepath $GITHUB_WORKSPACE/summaryreport.xml
           cat summaryreport.xml
 
           
