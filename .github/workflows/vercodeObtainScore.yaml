@@ -14,15 +14,24 @@ jobs:
       - uses: actions/checkout@v2
             
       - name: Download Jar Files
-        run: |            
-            wget "https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/21.9.8.2/vosp-api-wrappers-java-21.9.8.2.jar"            
+        run: |  
+            sudo apt install unzip
+            mkdir veracodeJarfiles
+            wget "https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/18.9.5.4/vosp-api-wrappers-java-18.9.5.4-dist.zip"
+            unzip vosp-api-wrappers-java-18.9.5.4-dist.zip -d $GITHUB_WORKSPACE/veracode
+            cd veracode                   
+            wget "https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/21.9.8.2/vosp-api-wrappers-java-21.9.8.2.jar"   
+            ls -lrt         
             
-      - name: Get Build Info
+      - name: Get Build Id
         run: |
             java -jar $GITHUB_WORKSPACE/vosp-api-wrappers-java-21.9.8.2.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action getbuildinfo -appid ${application_id} > output.xml 
             cat output.xml  
             output=$(python $GITHUB_WORKSPACE/scripts/veracodelib.py)
             echo "Build_id= $output"
+      - name: Get Summary Report
+        run: |
+          java -jar $GITHUB_WORKSPACE\\veracode\\VeracodeJavaAPI.jar -vid ${API_ID} -vkey ${API_KEY} -action summaryreport -buildid ${build_id} -outputfilepath $WORKSPACE\\summaryreport.xml
 
           
           
