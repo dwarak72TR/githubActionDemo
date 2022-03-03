@@ -23,16 +23,14 @@ jobs:
             wget "https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/21.9.8.2/vosp-api-wrappers-java-21.9.8.2.jar"   
             ls -lrt         
             
-      - name: Get Build Id
+      - name: Get Build Id and Summary report
         run: |
             java -jar $GITHUB_WORKSPACE/veracode/vosp-api-wrappers-java-21.9.8.2.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action getbuildinfo -appid ${application_id} > output.xml 
             cat output.xml  
             BUILD_id=$(python $GITHUB_WORKSPACE/scripts/veracodelib.py)
             echo "Build_id= $BUILD_id"
-      - name: Get Summary Report
-        run: |
-          java -jar $GITHUB_WORKSPACE/veracode/VeracodeJavaAPI.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action summaryreport -buildid $BUILD_id -outputfilepath $GITHUB_WORKSPACE/summaryreport.xml
-          cat summaryreport.xml
+            java -jar $GITHUB_WORKSPACE/veracode/VeracodeJavaAPI.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action summaryreport -buildid $BUILD_id -outputfilepath $GITHUB_WORKSPACE/summaryreport.xml
+            cat summaryreport.xml
 
           
           
