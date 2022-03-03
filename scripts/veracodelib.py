@@ -1,9 +1,13 @@
 import os
-import xml.etree.ElementTree as ET
-buildinfo = open("output.xml", "r")
-build_info="<?xml"+buildinfo.read().split("<?xml")[-1]
-mytree = ET.ElementTree(ET.fromstring(build_info))
-root = mytree.getroot()
 
-os.system('python $GITHUB_WORKSPACE/scripts/veracodelib.py')
-print(root.attrib['build_id'])
+def get_buildID():
+    filereader = open("output.xml", "r")
+    readxmlfile = filereader.read()
+    result = readxmlfile.split("build_id=",2) #readxml[231:239]
+    buildid = (result[1])[1:9]
+    return buildid
+
+build_id = get_buildID()
+
+#os.system('python $GITHUB_WORKSPACE/scripts/buildinfo_xml_extract.py')
+print(build_id)
