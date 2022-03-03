@@ -10,7 +10,10 @@ jobs:
   veracodeScoreRetrieve:
     name: veracode Scan Score Retrieve
     runs-on: ubuntu-latest
-    steps:    
+    steps:      
+      - name: Checkout SCM
+      - uses: actions/checkout@v2
+            
       - name: Download Jar Files
         run: |            
             wget "https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/21.9.8.2/vosp-api-wrappers-java-21.9.8.2.jar"            
