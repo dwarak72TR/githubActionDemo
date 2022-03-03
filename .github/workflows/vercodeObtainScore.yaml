@@ -19,7 +19,7 @@ jobs:
         run: |
             java -jar $GITHUB_WORKSPACE/vosp-api-wrappers-java-21.9.8.2.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action getbuildinfo -appid ${application_id} > output.xml 
             cat output.xml  
-            build_id = "grep "build_id=" output.xml"
+            build_id = `grep "build_id=\"Results Ready\"" output.xml | wc -l`
             echo build_id
           
 
