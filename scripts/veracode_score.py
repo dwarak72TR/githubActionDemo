@@ -8,4 +8,4 @@ def get_score():
 score = get_score()
 
 #os.system('python $GITHUB_WORKSPACE/scripts/buildinfo_xml_extract.py')
-print("SCore =",score)
+print(score)
