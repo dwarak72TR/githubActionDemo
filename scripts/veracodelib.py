@@ -7,7 +7,7 @@ def get_buildID():
     buildid = (result[1])[1:9]
     return buildid
 
-build_id = get_buildID()
+# build_id = get_buildID()
 
-#os.system('python $GITHUB_WORKSPACE/scripts/buildinfo_xml_extract.py')
-print(build_id)
+# #os.system('python $GITHUB_WORKSPACE/scripts/buildinfo_xml_extract.py')
+# print(build_id)
