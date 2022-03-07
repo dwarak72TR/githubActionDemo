@@ -25,12 +25,14 @@ jobs:
         run: |
             java -jar $GITHUB_WORKSPACE/veracode/vosp-api-wrappers-java-21.9.8.2.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action getbuildinfo -appid ${application_id} > output.xml 
             ls -lrt 
-            buildid=$(python $GITHUB_WORKSPACE/scripts/veracodelib.py)
-            echo "Build ID : $buildid"
+            buildid = $(python $GITHUB_WORKSPACE/scripts/veracodelib.py)
+            echo "Build_ID=$buildid" >> $GITHUB_ENV
+            
       
       - name: Get Score Value
         run: |
-            java -jar $GITHUB_WORKSPACE/veracode/VeracodeJavaAPI.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action summaryreport -buildid $buildid -outputfilepath $GITHUB_WORKSPACE/summaryreport.xml
+            
+            java -jar $GITHUB_WORKSPACE/veracode/VeracodeJavaAPI.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action summaryreport -buildid ${{ env.Build_ID }} -outputfilepath $GITHUB_WORKSPACE/summaryreport.xml
             score=$(python $GITHUB_WORKSPACE/scripts/veracode_score.py)
             echo "Score Value:$score"
 
