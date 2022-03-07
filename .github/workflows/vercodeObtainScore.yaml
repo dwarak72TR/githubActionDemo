@@ -25,7 +25,7 @@ jobs:
       - name: Get Build Id and Summary report
         run: |
             java -jar $GITHUB_WORKSPACE/veracode/vosp-api-wrappers-java-21.9.8.2.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action getbuildinfo -appid ${application_id} > output.xml 
-            ls -lrt           
+            ls -lrt     
             BUILD_id=$(python $GITHUB_WORKSPACE/scripts/veracodelib.py get_buildID)          
             echo "Build_id = $BUILD_id"
             

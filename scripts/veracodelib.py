@@ -1,4 +1,4 @@
-import os
+import sys
 
 def get_buildID():
     filereader = open("$GITHUB_WORKSPACE/output.xml", "r")
@@ -7,7 +7,4 @@ def get_buildID():
     buildid = (result[1])[1:9]
     print(buildid)
 
-#build_id = get_buildID()
-
-#os.system('python $GITHUB_WORKSPACE/scripts/veracodelib.py')
-#print(build_id)
+eval(sys.argv[1])
