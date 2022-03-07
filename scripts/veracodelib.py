@@ -1,4 +1,3 @@
-import sys
 
 def get_buildID():
     filereader = open("$GITHUB_WORKSPACE/output.xml", "r")
@@ -7,4 +6,3 @@ def get_buildID():
     buildid = (result[1])[1:9]
     print(buildid)
 
-eval(sys.argv[1])
