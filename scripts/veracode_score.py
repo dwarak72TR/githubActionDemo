@@ -6,6 +6,4 @@ def get_score():
     return score
 
 score = get_score()
-
-#os.system('python $GITHUB_WORKSPACE/scripts/buildinfo_xml_extract.py')
 print(score)
