@@ -1,7 +1,3 @@
-
-from matplotlib.pyplot import get
-
-
 def get_buildID():
     filereader = open("output.xml", "r")
     readxmlfile = filereader.read()
