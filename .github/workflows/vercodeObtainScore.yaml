@@ -27,8 +27,7 @@ jobs:
         run: |
             java -jar $GITHUB_WORKSPACE/veracode/vosp-api-wrappers-java-21.9.8.2.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action getbuildinfo -appid ${application_id} > output.xml 
             ls -lrt 
-      - name: Run simple python code
-         run: python veracodelib.py get_buildID              
+            python veracodelib.py get_buildID              
             
             
 
