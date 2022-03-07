@@ -9,5 +9,5 @@ def get_buildID():
 
 #build_id = get_buildID()
 
-os.system('python $GITHUB_WORKSPACE/scripts/veracodelib.py')
+#os.system('python $GITHUB_WORKSPACE/scripts/veracodelib.py')
 #print(build_id)
