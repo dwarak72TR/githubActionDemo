@@ -5,9 +5,9 @@ def get_buildID():
     readxmlfile = filereader.read()
     result = readxmlfile.split("build_id=",2) #readxml[231:239]
     buildid = (result[1])[1:9]
-    return buildid
+    print(buildid)
 
-build_id = get_buildID()
+#build_id = get_buildID()
 
 # #os.system('python $GITHUB_WORKSPACE/scripts/buildinfo_xml_extract.py')
-print(build_id)
+#print(build_id)
