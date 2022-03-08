@@ -1,4 +1,4 @@
-name: Veracode Obtain Score for NGOTP
+name: Veracode Scanning Status Checking for NGOTP
 on: push
 
 env: 
@@ -26,9 +26,7 @@ jobs:
       - name: Get Build Id and Summary report
         run: |
             java -jar $GITHUB_WORKSPACE/veracode/vosp-api-wrappers-java-21.9.8.2.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action getbuildinfo -appid ${application_id} > output.xml  
-            BUILD_id=$(python $GITHUB_WORKSPACE/scripts/get_buildid.py)
-            echo "Build_id= $BUILD_id"
-            java -jar $GITHUB_WORKSPACE/veracode/VeracodeJavaAPI.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action summaryreport -buildid $BUILD_id -outputfilepath $GITHUB_WORKSPACE/summaryreport.xml
-            score=$(python $GITHUB_WORKSPACE/scripts/getScore.py)
-            echo "score is $score"
-            java -jar $GITHUB_WORKSPACE/veracode/VeracodeJavaAPI.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action detailedreport -buildid $BUILD_id -format pdf -outputfilepath $GITHUB_WORKSPACE\\report_generate.pdf
+            BUILD_id=$(python $GITHUB_WORKSPACE/scripts/veracodelib.py)
+            echo "Build_id : $BUILD_id"
+            get_status = $(python $GITHUB_WORKSPACE/scripts/getStatus.py)
+            echo "Status : $get_status"
