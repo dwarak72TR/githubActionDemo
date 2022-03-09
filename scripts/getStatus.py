@@ -5,7 +5,7 @@ def get_status():
     result2 = result[1]
     status = result2.split("status=",2)
     finalcheck = status[1].split("/",2)
-    return finalcheck[0].trim()
+    return finalcheck[0].strip()
 
 
 status = get_status()
