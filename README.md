@@ -1,2 +1,2 @@
-# Build Status Badge: ![](https://github.com/dwarak72TR/githubActionDemo/workflows/first/badge.svg)
+# Build Status Badge: ![](https://github.com/dwarak72TR/githubActionDemo/workflows/vercodeTest.yaml/badge.svg)
 wiriting my first.yaml in github actionss
