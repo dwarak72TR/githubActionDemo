@@ -2,7 +2,7 @@ def get_status():
     filereader = open("output.xml", "r")
     readxmlfile = filereader.read()
     result = readxmlfile.split("published_date_sec=",2) #readxml[231:239]
-    result2 = (result[1])
+    result2 = result[1].split("status=",2)
     return result2
 
 
