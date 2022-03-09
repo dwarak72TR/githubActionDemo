@@ -30,7 +30,11 @@ jobs:
             echo "Build_id : $BUILD_id"  
             cat output.xml          
             Get_status=$(python $GITHUB_WORKSPACE/scripts/getStatus.py)
-            echo "Status : $Get_status"
+            echo "Status : $Get_status"            
+            if [ $Get_status == "Results Ready" ]
+            then
+              echo "ready to upload and scan new artifact"
+            else
+              echo "Upload and scan is in progress.Try after sometime"
+            fi
             
-            if [[ $BUILD_STATUS_EXTRACT == "Results Ready" ]]; then
-            echo "ready to roll out"
