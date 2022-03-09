@@ -31,3 +31,6 @@ jobs:
             cat output.xml          
             Get_status=$(python $GITHUB_WORKSPACE/scripts/getStatus.py)
             echo "Status : $Get_status"
+            
+            if [[ $BUILD_STATUS_EXTRACT == "Results Ready" ]]; then
+            echo "ready to roll out"
