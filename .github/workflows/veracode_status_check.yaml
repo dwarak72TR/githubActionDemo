@@ -29,5 +29,11 @@ jobs:
             cat output.xml          
             Get_status=$(python $GITHUB_WORKSPACE/scripts/getStatus.py)            
             char=$(echo -n $Get_status | wc -c)  
-            echo $char         
+            echo $char
+            if [ $Get_status == "Results Ready" ]
+            then
+              echo "ready to upload and scan new artifact"
+            else
+              echo "Upload and scan is in progress. Try after sometime"
+            fi      
             
