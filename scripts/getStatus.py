@@ -3,9 +3,10 @@ def get_status():
     readxmlfile = filereader.read()
     result = readxmlfile.split("published_date_sec=",2) #readxml[231:239]
     result2 = result[1]
-    status = result2.split("status=",2)
-    finalcheck = status[1].split("/",2)
-    return finalcheck[0].strip()
+    result3 = result2.split("status=",2)
+    finalcheck = result3[1].split("/",2)
+    status = finalcheck[0].replace("\"","")  
+    return status
 
 
 status = get_status()
