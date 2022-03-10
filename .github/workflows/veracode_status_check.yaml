@@ -27,7 +27,8 @@ jobs:
         run: |
             java -jar $GITHUB_WORKSPACE/veracode/vosp-api-wrappers-java-21.9.8.2.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action getbuildinfo -appid ${application_id} > output.xml    
             cat output.xml          
-            Get_status=$(python $GITHUB_WORKSPACE/scripts/getStatus.py)            
+            Get_status=$(python $GITHUB_WORKSPACE/scripts/getStatus.py)
+            echo $Get_Status          
             char=$(echo -n $Get_status | wc -c)  
             echo $char
             
