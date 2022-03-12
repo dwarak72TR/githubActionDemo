@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: dwarak72TR/actionsCreationSample@main
         with:
-            appname: "workpaapers"
+            appid: "workpaapers"
             api_call_name: "first timw"        
             vid: "id"
             vkey: "key"
