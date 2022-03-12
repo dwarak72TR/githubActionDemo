@@ -14,7 +14,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: dwarak72TR/actionsCreationSample@main
         with:
-            appname: $application_id           
+            appname: $application_id
+            api_call_name: "first timw"        
             vid: $VERACODE_API_ID
             vkey: $VERACODE_API_KEY
             
