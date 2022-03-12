@@ -1,11 +1,6 @@
 name: Test actionsSampleDemo
 on: push
 
-env: 
-  VERACODE_API_ID: ${{secrets.VERACODE_API_ID}}
-  VERACODE_API_KEY: ${{secrets.VERACODE_API_TOKEN}}
-  application_id: ${{ 1275652 }}
-
 jobs:
   testActionsDemo:
     name: Test First Action Demo
@@ -14,9 +9,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: dwarak72TR/actionsCreationSample@main
         with:
-            appname: $application_id
+            appname: "workpaapers"
             api_call_name: "first timw"        
-            vid: $VERACODE_API_ID
-            vkey: $VERACODE_API_KEY
+            vid: "id"
+            vkey: "key"
             
      
