@@ -13,9 +13,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: dwarak72TR/actionsCreationSample@main
         with:
-            appid: ${application_id}
+            appid: ${{ application_id }}
             api_call_name: "getbuildinfo"        
-            vid: ${VERACODE_API_ID}
-            vkey: ${VERACODE_API_KEY}
+            vid: ${{ VERACODE_API_ID }}
+            vkey: ${{ VERACODE_API_KEY }}
             
      
