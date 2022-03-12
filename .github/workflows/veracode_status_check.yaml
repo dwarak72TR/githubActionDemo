@@ -1,4 +1,4 @@
-name: Veracode Scanning Status Checking for NGOTP
+name: Test actionsSampleDemo
 on: push
 
 env: 
@@ -7,35 +7,15 @@ env:
   application_id: ${{ 1275652 }}
 
 jobs:
-  veracodeScoreRetrieve:
-    name: veracode Scan Status 
+  testActionsDemo:
+    name: Test First Action Demo
     runs-on: ubuntu-latest
     steps:      
       - uses: actions/checkout@v2
+      - uses: dwarak72TR/actionsCreationSample@main
+        with:
+            appname: $application_id           
+            vid: $VERACODE_API_ID
+            vkey: $VERACODE_API_KEY
             
-      - name: Download Jar Files
-        run: |  
-            sudo apt install unzip
-            mkdir veracodeJarfiles
-            wget "https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/18.9.5.4/vosp-api-wrappers-java-18.9.5.4-dist.zip"
-            unzip vosp-api-wrappers-java-18.9.5.4-dist.zip -d $GITHUB_WORKSPACE/veracode
-            cd veracode                   
-            wget "https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/21.9.8.2/vosp-api-wrappers-java-21.9.8.2.jar"   
-            ls -lrt         
-            
-      - name: Get Status
-        run: |
-            java -jar $GITHUB_WORKSPACE/veracode/vosp-api-wrappers-java-21.9.8.2.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -action getbuildinfo -appid ${application_id} > output.xml    
-            cat output.xml          
-            Get_status=$(python $GITHUB_WORKSPACE/scripts/getStatus.py)
-            echo $Get_status          
-            char=$(echo -n $Get_status | wc -c)  
-            echo $char
-            
-            if [ $Get_status == "Results Ready" ]
-            then
-              echo "Triggering Upload and Scan job"
-            else
-              echo "Upload and scan is in progress. Try after sometime"
-            fi      
-            
+     
