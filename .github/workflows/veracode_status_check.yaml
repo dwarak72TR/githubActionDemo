@@ -9,8 +9,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: dwarak72TR/actionsCreationSample@main
         with:
-            appid: "workpaapers"
-            api_call_name: "first timw"        
+            appid: "1278324"
+            api_call_name: "getbuildinfo"        
             vid: "id"
             vkey: "key"
             
