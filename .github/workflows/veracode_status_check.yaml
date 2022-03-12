@@ -1,5 +1,9 @@
 name: Test actionsSampleDemo
 on: push
+env: 
+  VERACODE_API_ID: ${{secrets.VERACODE_API_ID}}
+  VERACODE_API_KEY: ${{secrets.VERACODE_API_TOKEN}}
+  application_id: ${{ 1275652 }}
 
 jobs:
   testActionsDemo:
@@ -11,7 +15,7 @@ jobs:
         with:
             appid: "1278324"
             api_call_name: "getbuildinfo"        
-            vid: "id"
-            vkey: "key"
+            vid: $VERACODE_API_ID
+            vkey: $VERACODE_API_KEY
             
      
