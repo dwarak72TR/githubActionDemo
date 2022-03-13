@@ -17,6 +17,8 @@ jobs:
             vid: ${{ env.VERACODE_API_ID }}
             vkey: ${{ env.VERACODE_API_KEY }}
       - name: checking out
-        run: ls -lrt
+        run: |
+            ls -lrt
+            cat runJava.sh
             
      
