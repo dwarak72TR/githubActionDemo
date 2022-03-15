@@ -16,7 +16,6 @@ jobs:
             api_call_name: "getbuildinfo"        
             vid: ${{ env.VERACODE_API_ID }}
             vkey: ${{ env.VERACODE_API_KEY }}
-      - name: checking out
-        run: cat output.xml
+      
             
      
