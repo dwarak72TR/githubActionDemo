@@ -9,13 +9,16 @@ jobs:
   testActionsDemo:
     name: GetBuildInfo
     runs-on: ubuntu-latest
-    steps:   
-      - uses: dwarak72TR/actionsCreationSample@main
-        with:
-            appid: ${{ env.application_id }}
-            api_call_name: "getbuildinfo"        
-            vid: ${{ env.VERACODE_API_ID }}
-            vkey: ${{ env.VERACODE_API_KEY }}
+    steps: 
+    - name: Install xmllint
+      run: sudo apt-get install -y libxml2-utils 
+      name: GetBuildinfo 
+    - uses: dwarak72TR/actionsCreationSample@main
+      with:
+          appid: ${{ env.application_id }}
+          api_call_name: "getbuildinfo"        
+          vid: ${{ env.VERACODE_API_ID }}
+          vkey: ${{ env.VERACODE_API_KEY }}
      
             
      
