@@ -16,7 +16,7 @@ jobs:
           api_call_name: "getbuildinfo"        
           vid: ${{ env.VERACODE_API_ID }}
           vkey: ${{ env.VERACODE_API_KEY }}
-   GetScoreValue:
+  GetScoreValue:
     name: GetBuildInfo
     runs-on: ubuntu-latest
     steps:      
