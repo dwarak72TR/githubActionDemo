@@ -16,7 +16,7 @@ jobs:
           api_call_name: "getbuildinfo"        
           vid: ${{ env.VERACODE_API_ID }}
           vkey: ${{ env.VERACODE_API_KEY }}
-     - name: Get done
-       run: echo "Done with Veracode githubactions"
+    - name: Retrieveing is done
+      run: echo "Done with Veracode githubactions"
             
      
