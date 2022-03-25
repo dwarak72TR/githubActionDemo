@@ -17,7 +17,7 @@ jobs:
           vid: ${{ env.VERACODE_API_ID }}
           vkey: ${{ env.VERACODE_API_KEY }}
   GetScoreValue:
-    name: GetBuildInfo
+    name: GetScoreValue
     runs-on: ubuntu-latest
     steps:      
     - uses: dwarak72TR/actionsCreationSample@main
