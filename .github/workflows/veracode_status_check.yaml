@@ -6,7 +6,7 @@ env:
   application_id: ${{ 1275652 }}
 
 jobs:
-  testActionsDemo:
+  GetBuildInfo:
     name: GetBuildInfo
     runs-on: ubuntu-latest
     steps:      
@@ -16,7 +16,14 @@ jobs:
           api_call_name: "getbuildinfo"        
           vid: ${{ env.VERACODE_API_ID }}
           vkey: ${{ env.VERACODE_API_KEY }}
-    - name: Retrieveing is done
-      run: echo "Done with Veracode githubactions"
-            
+   GetScoreValue:
+    name: GetBuildInfo
+    runs-on: ubuntu-latest
+    steps:      
+    - uses: dwarak72TR/actionsCreationSample@main
+      with:
+          appid: ${{ env.application_id }}
+          api_call_name: "getscore"        
+          vid: ${{ env.VERACODE_API_ID }}
+          vkey: ${{ env.VERACODE_API_KEY }}
      
